@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Agro Sustentável</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Calculadora de Pegada Ecológica</h1>
+        <p class="subtitle">Descubra o nível de sustentabilidade da sua produção</p>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <form id="agroForm">
+            <div class="step active" id="step1">
+                <h2>Etapa 1: Gestão do Solo</h2>
+                <p>Como é feito o plantio na propriedade?</p>
+                
+                <label class="card-option">
+                    <input type="radio" name="solo" value="direto">
+                    <div class="card-content">
+                        <strong>Plantio Direto e Rotação de Culturas</strong>
+                        <span>Protege o solo, evita erosão e mantém os nutrientes.</span>
+                    </div>
+                </label>
+
+                <label class="card-option">
+                    <input type="radio" name="solo" value="tradicional">
+                    <div class="card-content">
+                        <strong>Arado Tradicional (Convencional)</strong>
+                        <span>Revira o solo frequentemente, o que pode causar desgaste.</span>
+                    </div>
+                </label>
+
+                <button type="button" class="btn" onclick="nextStep(2)">Avançar</button>
+            </div>
+
+            <div class="step" id="step2">
+                <h2>Etapa 2: Recursos Naturais</h2>
+                <p>Qual é a principal fonte de energia ou método de irrigação?</p>
+
+                <label class="card-option">
+                    <input type="radio" name="energia" value="solar">
+                    <div class="card-content">
+                        <strong>Energia Solar / Irrigação por Gotejamento</strong>
+                        <span>Uso de fontes renováveis e economia máxima de água.</span>
+                    </div>
+                </label>
+
+                <label class="card-option">
+                    <input type="radio" name="energia" value="comum">
+                    <div class="card-content">
+                        <strong>Energia da Rede / Irrigação Comum</strong>
+                        <span>Consumo padrão sem fontes alternativas ou automação.</span>
+                    </div>
+                </label>
+
+                <div class="btn-group">
+                    <button type="button" class="btn btn-secondary" onclick="prevStep(1)">Voltar</button>
+                    <button type="button" class="btn" onclick="calculateResult()">Calcular Resultado</button>
+                </div>
+            </div>
+
+            <div class="step" id="resultStep">
+                <h2>Seu Resultado:</h2>
+                <div id="resultValue" class="result-badge">--</div>
+                <p id="resultText"></p>
+                <button type="button" class="btn" onclick="restartForm()">Refazer Teste</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
